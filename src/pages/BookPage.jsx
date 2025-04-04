@@ -10,10 +10,11 @@ export default function BookPage({ books }) {
 
     return (
         <div className="container mt-2">
-            <h3>{book.title}</h3>
-            <hr />
+
             <Row className="g-4">
                 <Col lg={8}>
+                    <h3>{book.title}</h3>
+                    <hr />
                     {/* Book Image */}
                     <img
                         src={'https://placehold.co/700x300'}
