@@ -64,10 +64,12 @@ export default function BooksPage() {
                         <Card className="h-100">
                             <Card.Img variant="top" src={book.cover_image} />
                             <Card.Body>
-                                {/* <Card.Title>{book.title}</Card.Title> */}
                                 <Card.Title>
                                     <Link to={`/book/${book.id}`} className="text-decoration-none">
-                                        {book.title}
+                                        {book.title.length > 24
+                                            ? book.title.substring(0, 24) + '...'
+                                            : book.title
+                                        }
                                     </Link>
                                 </Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">

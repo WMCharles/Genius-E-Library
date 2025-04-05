@@ -1,4 +1,3 @@
-// AddBookModal.jsx
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
@@ -26,7 +25,7 @@ export default function AddCategoryModal({ show, handleClose, addCategory }) {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Add New Category</Modal.Title>
+                <Modal.Title>New Category</Modal.Title>
             </Modal.Header>
             <Form onSubmit={handleSubmit}>
                 <Modal.Body>

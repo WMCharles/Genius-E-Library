@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 export default function Navigation({ user, setUser }) {
   const navigate = useNavigate()
 
+  // user = null ?? navigate('/login')
+
   const handleLogout = () => {
     setUser(null)
     navigate('/login')
@@ -18,10 +20,15 @@ export default function Navigation({ user, setUser }) {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Books</Nav.Link>
             <Nav.Link as={Link} to="/categories">Categories</Nav.Link>
+            <Nav.Link as={Link} to="/about">About</Nav.Link>
+            <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
           </Nav>
           <Nav>
             {user ? (
-              <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
+              <>
+                <Nav.Link as={Link} to="/account">My Account</Nav.Link>
+                <Button variant="outline-light" onClick={handleLogout}>Logout</Button>
+              </>
             ) : (
               <Button variant="outline-light" as={Link} to="/login">Login</Button>
             )}

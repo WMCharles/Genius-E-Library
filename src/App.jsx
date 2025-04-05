@@ -9,6 +9,10 @@ import { Container } from 'react-bootstrap';
 import RegisterPage from './pages/RegisterPage'
 import BookPage from './pages/BookPage'
 import { mockBooks } from './data/mockData'
+import CategoryBooksPage from './pages/CategoryBooksPage'
+import AboutUsPage from './pages/AboutUsPage'
+import ContactUsPage from './pages/ContactUsPage'
+import MyAccountPage from './pages/MyAccountPage'
 
 function Layout({ user, setUser }) {
   return (
@@ -32,6 +36,10 @@ export default function App() {
       <Route path="/" element={<Layout user={user} setUser={setUser} />}>
         <Route index element={<BooksPage />} />
         <Route path="categories" element={<CategoriesPage />} />
+        <Route path="about" element={<AboutUsPage />} />
+        <Route path="account" element={<MyAccountPage />} />
+        <Route path="contact" element={<ContactUsPage />} />
+        <Route path="/categories/:id" element={<CategoryBooksPage />} />
         <Route path="login" element={<LoginPage setUser={setUser} />} />
         <Route path="register" element={<RegisterPage setUser={setUser} />} />
         <Route path="book/:id" element={<BookPage books={books} />} />

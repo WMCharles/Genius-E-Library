@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap'
 
-export default function AdvertBox({ title, text }) {
+export default function Box({ title, text }) {
     return (
         <Card className="mb-4 shadow-sm advert-box">
             <Card.Body>

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
-import AdvertBox from '../components/AdvertBox';
+import Box from '../components/Box';
 
 export default function BookPage({ books }) {
     const { id } = useParams();
@@ -32,16 +32,17 @@ export default function BookPage({ books }) {
                         {book.available ? (
                             <>
                                 <Button variant="success" size="sm" className="me-2">
-                                    {book.free ? 'Download Free' : `Rent - $${book.rent_price}`}
+                                    {book.free ? 'Download Free' : 'Rent - $' + book.rent_price}
                                 </Button>
                                 {!book.free && (
                                     <Button variant="primary" size="sm">
-                                        Buy - $${book.purchase_price}
+                                        {'Buy - $' + book.purchase_price}
                                     </Button>
                                 )}
                             </>
+
                         ) : (
-                            <Button variant="secondary" size="lg" disabled>
+                            <Button variant="secondary" size="sm" disabled>
                                 Not Available
                             </Button>
                         )}
@@ -50,11 +51,11 @@ export default function BookPage({ books }) {
 
                 {/* Advert Sidebar */}
                 <Col lg={4}>
-                    <AdvertBox
+                    <Box
                         title="Special Offer!"
                         text="Get 20% off your next purchase with code BOOKLOVER20"
                     />
-                    <AdvertBox
+                    <Box
                         title="New Releases"
                         text="Check out our latest arrivals in the Mystery section!"
                     />

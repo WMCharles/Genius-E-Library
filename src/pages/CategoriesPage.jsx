@@ -1,13 +1,17 @@
-import { Table, Button, Form } from 'react-bootstrap'
-import { mockCategories } from '../data/mockData'
-import { useState, useEffect } from 'react'
-import AddCategoryModal from '../components/AddCategoryModal'
+import { Table, Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { mockCategories } from '../data/mockData';
+import AddCategoryModal from '../components/AddCategoryModal';
 
 export default function CategoriesPage() {
+    // Use local state so that newly added categories are reflected
+    const [categories, setCategories] = useState(mockCategories);
 
-    const addBook = (newBook) => {
-        setBooks([...books, newBook])
-    }
+    // Function to add a new category to the state
+    const addCategory = (newCategory) => {
+        setCategories([...categories, newCategory]);
+    };
 
     const [showModal, setShowModal] = useState(false);
 
@@ -17,9 +21,9 @@ export default function CategoriesPage() {
     return (
         <>
             <div className="d-flex justify-content-between mb-4">
-                <h2>Books</h2>
+                <h3>Categories</h3>
                 <div className="d-flex align-items-center">
-                    <Button variant="success" className="ms-2" onClick={handleOpenModal}>
+                    <Button variant="success" className="ms-2 btn-sm" onClick={handleOpenModal}>
                         Add Category
                     </Button>
                 </div>
@@ -27,7 +31,7 @@ export default function CategoriesPage() {
                 <AddCategoryModal
                     show={showModal}
                     handleClose={handleCloseModal}
-                    addCategory={addBook}
+                    addCategory={addCategory}
                 />
             </div>
 
@@ -39,14 +43,18 @@ export default function CategoriesPage() {
                     </tr>
                 </thead>
                 <tbody>
-                    {mockCategories.map(category => (
+                    {categories.map(category => (
                         <tr key={category.id}>
-                            <td>{category.name}</td>
+                            <td>
+                                <Link to={`/categories/${category.id}`} className="text-decoration-none">
+                                    {category.name}
+                                </Link>
+                            </td>
                             <td>{category.description || '-'}</td>
                         </tr>
                     ))}
                 </tbody>
             </Table>
         </>
-    )
+    );
 }
