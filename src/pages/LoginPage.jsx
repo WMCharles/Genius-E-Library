@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Form, Button, Alert } from 'react-bootstrap'
-import { useNavigate, Link  } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function LoginPage({ setUser }) {
     const [email, setEmail] = useState('')
@@ -9,15 +9,16 @@ export default function LoginPage({ setUser }) {
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        // Add real authentication logic here
+        e.preventDefault();
         if (email && password) {
-            setUser({ email })
-            navigate('/')
+            const newUser = { email };
+            setUser(newUser);
+            localStorage.setItem('user', JSON.stringify(newUser));
+            navigate('/');
         } else {
-            setError('Invalid credentials')
+            setError('Invalid credentials');
         }
-    }
+    };
 
     return (
         <div className="auth-container">

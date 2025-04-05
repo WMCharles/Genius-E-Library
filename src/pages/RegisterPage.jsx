@@ -13,6 +13,7 @@ export default function RegisterPage({ setUser }) {
         if (email && password) {
             const newUser = { email };
             setUser(newUser);
+            localStorage.setItem('user', JSON.stringify(newUser));
             navigate('/');
         } else {
             setError('Please fill in all fields.');

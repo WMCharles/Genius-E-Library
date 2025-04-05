@@ -29,7 +29,11 @@ function Layout({ user, setUser }) {
 }
 
 export default function App() {
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem('user');
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
   const [books, setBooks] = useState(mockBooks);
   return (
     <Routes>
