@@ -3,6 +3,7 @@ import { Card, Row, Col, Form, Button, Badge } from 'react-bootstrap'
 import { mockBooks, mockCategories } from '../data/mockData'
 import AddBookModal from '../components/AddBookModal'
 import { Link } from 'react-router-dom'
+import Advertisement from '../components/Advertisement.jsx'
 
 export default function BooksPage() {
     const [selectedCategory, setSelectedCategory] = useState('all')
@@ -10,11 +11,12 @@ export default function BooksPage() {
     const [categories, setCategories] = useState(mockCategories);
 
     const addBook = (newBook) => {
+        // Ensure that you have defined "books" in your state or context.
+        // For demonstration, this line assumes you have a "books" state defined.
         setBooks([...books, newBook])
     }
 
     const [showModal, setShowModal] = useState(false);
-
     const handleOpenModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
 
@@ -27,7 +29,6 @@ export default function BooksPage() {
             );
         }
     }, [selectedCategory]);
-
 
     return (
         <>
@@ -100,6 +101,9 @@ export default function BooksPage() {
                     </Col>
                 ))}
             </Row>
+
+            <Advertisement />
+
         </>
     )
 }

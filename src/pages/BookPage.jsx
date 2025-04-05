@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Row, Col, Button } from 'react-bootstrap';
 import Box from '../components/Box';
+import Advertisement from '../components/Advertisement';
 
 export default function BookPage({ books }) {
     const { id } = useParams();
@@ -60,6 +61,8 @@ export default function BookPage({ books }) {
                     />
                 </Col>
             </Row>
+
+            <Advertisement />
         </div>
     );
 }

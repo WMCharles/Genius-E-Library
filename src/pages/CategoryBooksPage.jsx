@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Row, Col, Card, Button, Badge } from 'react-bootstrap';
 import { mockBooks, mockCategories } from '../data/mockData';
+import Advertisement from '../components/Advertisement';
 
 export default function CategoryBooksPage() {
   const { id } = useParams();
@@ -58,6 +59,8 @@ export default function CategoryBooksPage() {
           </Col>
         ))}
       </Row>
+
+      <Advertisement />
     </div>
   );
 }
