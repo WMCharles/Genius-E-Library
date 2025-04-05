@@ -60,10 +60,6 @@ export default function BookPage({ books }) {
                     />
                 </Col>
             </Row>
-            <Box
-                title="Special Offer!"
-                text="Get 20% off your next purchase with code BOOKLOVER20"
-            />
         </div>
     );
 }
