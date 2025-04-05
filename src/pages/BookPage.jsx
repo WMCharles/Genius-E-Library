@@ -49,7 +49,6 @@ export default function BookPage({ books }) {
                     </div>
                 </Col>
 
-                {/* Advert Sidebar */}
                 <Col lg={4}>
                     <Box
                         title="Special Offer!"
@@ -61,6 +60,10 @@ export default function BookPage({ books }) {
                     />
                 </Col>
             </Row>
+            <Box
+                title="Special Offer!"
+                text="Get 20% off your next purchase with code BOOKLOVER20"
+            />
         </div>
     );
 }
